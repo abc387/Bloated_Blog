@@ -12,19 +12,17 @@ const energyButton = document.getElementById("energyButton");
 const themeButton = document.getElementById("themeButton");
 const surpriseButton = document.getElementById("surpriseButton");
 
-// Button 1: deliberately pointless repeated updates
+// Button 1: Generate energy efficiently
 energyButton.addEventListener("click", function () {
-  for (let i = 0; i < 100; i++) {
-    energy += 100;
-    energyCounter.textContent = energy;
-  }
+  energy += 100;
+  energyCounter.textContent = energy;
 
   clicks += 1;
   clickCounter.textContent = clicks;
   message.textContent = "Congratulations! You generated 100 energy points.";
 });
 
-// Button 2: repeatedly changes styles
+// Button 2: Change website colours
 themeButton.addEventListener("click", function () {
   clicks += 1;
   clickCounter.textContent = clicks;
@@ -33,6 +31,7 @@ themeButton.addEventListener("click", function () {
     "hue-rotate(" + Math.floor(Math.random() * 360) + "deg)";
 
   message.textContent = "The entire website has coloured. Again.";
+});
 
 surpriseButton.addEventListener("click", function () {
   const randomNumber = Math.floor(Math.random() * surprises.length);
@@ -40,6 +39,8 @@ surpriseButton.addEventListener("click", function () {
 
   clicks += 1;
   clickCounter.textContent = clicks;
+});
+
 // Add listeners to every card button.
 document.querySelectorAll(".card-button").forEach(function (button) {
   button.addEventListener("click", function () {
@@ -48,6 +49,8 @@ document.querySelectorAll(".card-button").forEach(function (button) {
 
     message.textContent =
       "You clicked: " + button.textContent + ". That was unnecessary, but fun!";
+  });
+});
 
 // Log information to the console for students to inspect.
 console.log("EcoMega™ JavaScript loaded.");
